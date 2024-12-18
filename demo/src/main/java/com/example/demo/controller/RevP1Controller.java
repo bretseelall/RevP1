@@ -27,5 +27,15 @@ public class RevP1Controller {
         else
             return ResponseEntity.status(409).body(accounts);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<Accounts> postUserLogin(@RequestBody Accounts account){
+        Accounts loginAccount = accountsService.postUserLogin(account);
+
+        if(loginAccount != null)
+            return ResponseEntity.status(200).body(account);
+        else
+            return ResponseEntity.status(409).body(account);
+    }
     
 }

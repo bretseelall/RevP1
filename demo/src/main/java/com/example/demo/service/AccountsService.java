@@ -26,4 +26,22 @@ public class AccountsService {
         }
         return accountRepo.save(account);
     }
+
+    public Accounts postUserLogin(Accounts account){
+        
+        if(accountRepo.findByUsername(account.getUsername()).isPresent())
+        {
+            Accounts accountInDB = accountRepo.findByUsername(account.getUsername()).get();
+
+            if((account.getUsername().equals(accountInDB.getUsername())) && account.getPassword().equals(accountInDB.getPassword())){
+                return accountInDB;
+            }
+            else
+                return null;
+        }
+        else
+            return null;
+
+        
+    }
 }
