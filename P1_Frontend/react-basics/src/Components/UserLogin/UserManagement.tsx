@@ -43,6 +43,7 @@ function UserManagement() {
 
                 //console.log("Here is the response: ", await response.json());
             }catch (error){
+                alert("Invalid Credentials!");
                 console.error("Wrong Credentials");
             }
         };

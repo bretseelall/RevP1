@@ -19,23 +19,28 @@ function UserRegister() {
         }).then(response => response.json()).then(data => {
 
             console.log('User Registered as ', data)
-        }).catch(error => console.error('Error registering user: ', error));
+        }).catch((error) => {
+            alert("Error!");
+            console.error('Error registering user: ', error)});
         
         navigate('/login');
-        console.log(username, password);
+        //console.log(username, password);
     }
   return (
-    <form onSubmit={registerSubmit}>
-         <label>Username:
-            <input type="text" value={username} onChange={(e:any)=> setUsername(e.target.value)}></input>
-        </label><br/>
-        
-        <label>Password:
-            <input type='password' value={password} onChange={(e:any)=> setPassword(e.target.value)}></input>
-        </label><br/>
-        
-        <button type='submit'>Register</button>
-    </form>
+    <>
+        <h1 style={{backgroundColor: 'cyan'}}>Create Account</h1>
+        <form style={{display: 'flex', justifyContent: 'center'}} onSubmit={registerSubmit}>
+            <label>Username:
+                <input style={{boxSizing: 'border-box', margin: 8}} type="text" value={username} onChange={(e:any)=> setUsername(e.target.value)}></input>
+            </label><br/>
+            
+            <label>Password:
+                <input style={{boxSizing: 'border-box', margin: 8}} type='password' value={password} onChange={(e:any)=> setPassword(e.target.value)}></input>
+            </label><br/>
+            
+            <button type='submit'>Register</button>
+        </form>
+    </>
   )
 }
 

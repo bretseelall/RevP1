@@ -16,6 +16,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.example.demo.entity.Ticket;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GetTicketTests {
@@ -38,17 +39,18 @@ public class GetTicketTests {
         SpringApplication.exit(app);
     }
 
-    //  @Test
-    // public void getAllTicketsByUsernameSuccessful() throws IOException, InterruptedException {
-    //     HttpRequest request = HttpRequest.newBuilder()
-    //             .uri(URI.create("http://localhost:8080/ticket/user1"))
-    //             .build();
-    //     HttpResponse<String> response = webClient.send(request, HttpResponse.BodyHandlers.ofString());
-    //     int status = response.statusCode();
-    //     Assertions.assertEquals(200, status, "Expected Status Code 200 - Actual Code was: " + status);
-    //     List<Ticket> expectedResult = new ArrayList<Ticket>();
-    //     expectedResult.add(new Ticket("user1", "100", "description"));
-    //     expectedResult.add(new Ticket("user1", "100", "description"));
-    //     List<Ticket> actualResult = objectMapper.readValue(response.body().toString(), new TypeReference<List<Ticket>>(){});
-    //     Assertions.assertEquals(expectedResult, actualResult, "Expected="+expectedResult + ", Actual="+actualResult);
+     @Test
+    public void getAllTicketsByUsernameSuccessful() throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/ticket/employee/user1"))
+                .build();
+        HttpResponse<String> response = webClient.send(request, HttpResponse.BodyHandlers.ofString());
+        int status = response.statusCode();
+        Assertions.assertEquals(200, status, "Expected Status Code 200 - Actual Code was: " + status);
+        List<Ticket> expectedResult = new ArrayList<Ticket>();
+        expectedResult.add(new Ticket("user1", "130", "description"));
+        //expectedResult.add(new Ticket("user1", "100", "description"));
+        List<Ticket> actualResult = objectMapper.readValue(response.body().toString(), new TypeReference<List<Ticket>>(){});
+        Assertions.assertEquals(expectedResult, actualResult, "Expected="+expectedResult + ", Actual="+actualResult);
+    }
 }

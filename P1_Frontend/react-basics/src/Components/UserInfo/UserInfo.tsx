@@ -16,8 +16,8 @@ function UserInfo() {
     <>
         {
             state.user && (
-                <div>
-                    <p>Welcome, {state.user.username}</p>
+                <div style={{backgroundColor: 'cyan'}}>
+                    <h1>Welcome, {state.user.username}</h1>
                     <Link to="/login">
                         <button onClick={() => dispatch({type: 'LOGOUT'})} >Logout</button>
                     </Link>

@@ -28,8 +28,8 @@ function EmployeeViewTicket() {
     }, [])
   return (
     <>
-        <h1>Current Tickets</h1>
-        <table>
+        <h1 style={{backgroundColor: 'cyan'}}>My Tickets</h1>
+        <table style={{borderRadius: 5}}>
             <thead>
                 <tr>
                     <th>Amount</th>

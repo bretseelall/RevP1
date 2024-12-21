@@ -21,25 +21,28 @@ function EmployeeCreateTicket() {
             },
             body: JSON.stringify({username, amount, description}),
         }).then(response => response.json()).then(data => {
-
+            alert('Ticket Created');
             console.log('Ticket created: ', data)
         }).catch(error => console.error('Error creating ticket: ', error));
         console.log("Hit");
         navigate('/employee');
     }
   return (
-    <form onSubmit={createTicket}>
-        <label>Amount:
-            <input type="text" value={amount} onChange={(e: any) => setAmount(e.target.value)}></input>
-        </label><br/>
+    <>
+        <h1 style={{backgroundColor: 'cyan'}}>Create Ticket</h1>
+        <form style={{display: 'flow', justifyContent: 'center'}} onSubmit={createTicket}>
+            <label>Amount:
+                <input style={{boxSizing: 'border-box', margin: 8}} type="text" value={amount} onChange={(e: any) => setAmount(e.target.value)}></input>
+            </label><br/>
 
-        <label>Description:
-            <input type="text" value={description} onChange={(e: any) => setDescription(e.target.value)}></input>
-        </label><br/>
+            <label>Description:
+                <input style={{boxSizing: 'border-box', margin: 8}} type="text" value={description} onChange={(e: any) => setDescription(e.target.value)}></input>
+            </label><br/>
 
-        <button type='submit'>Submit Ticket</button>
+            <button type='submit'>Submit Ticket</button>
 
-    </form>
+        </form>
+    </>
 //     <form onSubmit={registerSubmit}>
 //     <label>Username:
 //        <input type="text" value={username} onChange={(e:any)=> setUsername(e.target.value)}></input>

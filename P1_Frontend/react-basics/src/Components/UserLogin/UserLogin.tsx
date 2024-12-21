@@ -12,19 +12,23 @@ type UserInputProps ={
 function UserLogin({username, setUsername, password, setPassword, handleSubmit, handleRegister}: UserInputProps) {
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+      <h1 style={{backgroundColor: 'cyan'}}>Login</h1>
+      <form style={{display: 'flex', justifyContent: 'center'}} onSubmit={handleSubmit}>
 
         <label>Username:
-            <input type="text" value={username} onChange={(e:any)=> setUsername(e.target.value)}></input>
+            <input style={{boxSizing: 'border-box', margin: 8}} type="text" value={username} onChange={(e:any)=> setUsername(e.target.value)}></input>
         </label><br/>
-        
+
         <label>Password:
-            <input type='password' value={password} onChange={(e:any)=> setPassword(e.target.value)}></input>
+            <input style={{boxSizing: 'border-box', margin: 8}} type='password' value={password} onChange={(e:any)=> setPassword(e.target.value)}></input>
         </label><br/>
-        
+
         <button type='submit'>Submit</button>
         <button type='button' onClick={handleRegister}>Create Account</button>
-    </form>
+      </form>
+    </>
+    
   )
 }
 

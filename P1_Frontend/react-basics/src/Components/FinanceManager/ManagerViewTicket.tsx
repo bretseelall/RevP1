@@ -56,7 +56,7 @@ function ManagerViewTicket() {
 
   return (
     <>
-        <h1>Pending Tickets</h1>
+        <h1 style={{backgroundColor: 'cyan'}}>Pending Tickets</h1>
         <table>
             <thead>
                 <tr>
